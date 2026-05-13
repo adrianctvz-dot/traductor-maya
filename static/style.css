@@ -1,6 +1,6 @@
 body{
     margin: 0;
-    padding: 0;
+    padding: 20px;
     font-family: Arial, sans-serif;
 
     background: linear-gradient(
@@ -9,13 +9,14 @@ body{
         #2a5298
     );
 
-    height: 100vh;
+    min-height: 100vh;
 
     display: flex;
     justify-content: center;
     align-items: center;
-}
 
+    box-sizing: border-box;
+}
 .contenedor{
 
     background: white;
@@ -24,7 +25,9 @@ body{
 
     border-radius: 20px;
 
-    width: 400px;
+   width: 90%;
+max-width: 420px;
+box-sizing: border-box;
 
     text-align: center;
 
@@ -108,6 +111,56 @@ button:hover{
     font-weight: bold;
 }
 @media (max-width: 600px){
+
+    body{
+        padding: 10px;
+        align-items: flex-start;
+    }
+
+    .contenedor{
+
+        width: 100%;
+        max-width: 100%;
+
+        padding: 20px;
+
+        border-radius: 15px;
+    }
+
+    h1{
+        font-size: 22px;
+    }
+
+    h2{
+        font-size: 20px;
+    }
+
+    h3{
+        font-size: 16px;
+    }
+
+    input{
+
+        width: 100%;
+
+        box-sizing: border-box;
+
+        font-size: 16px;
+    }
+
+    button{
+
+        width: 100%;
+
+        box-sizing: border-box;
+
+        margin-top: 10px;
+    }
+
+    .barra{
+        width: 100%;
+    }
+}
 
     .contenedor{
         width: 90%;

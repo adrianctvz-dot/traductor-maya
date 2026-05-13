@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Traductor Maya</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <h1>Traductor Español - Maya</h1>
+
+        <div class="progreso">
+    <p id="nivel">Nivel: 1</p>
+    <p id="xp">XP: 0</p>
+</div>
+
+        <input
+            type="text"
+            id="palabra"
+            placeholder="Escribe una palabra"
+        >
+
+        <button onclick="traducir()">
+            Traducir
+        </button>
+
+<button onclick="escuchar()">
+    🎤 Hablar
+</button>
+
+        <h2 id="resultado"></h2>
+
+        <h3 id="pronunciacion"></h3>
+
+        <button onclick="hablar()">
+            🔊 Escuchar
+        </button>
+
+        <hr>
+
+<h2>Practicar pronunciación</h2>
+
+<h3 id="palabra-practica"></h3>
+<button onclick="nuevaPalabra()">
+    🎲 Nueva palabra
+</button>
+
+<button onclick="escucharPronunciacion()">
+    🎤 Pronunciar
+</button>
+
+<h2 id="calificacion"></h2>
+
+<div class="barra">
+    <div id="barra-progreso"></div>
+</div>
+
+<h3 id="tip"></h3>
+
+    </div>
+
+    <script src="/static/script.js"></script>
+
+</body>
+</html>

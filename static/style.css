@@ -1,0 +1,134 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+
+    background: linear-gradient(
+        135deg,
+        #1e3c72,
+        #2a5298
+    );
+
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor{
+
+    background: white;
+
+    padding: 40px;
+
+    border-radius: 20px;
+
+    width: 400px;
+
+    text-align: center;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+h1{
+    color: #1e3c72;
+    margin-bottom: 30px;
+}
+
+input{
+
+    width: 90%;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    border: 1px solid #ccc;
+
+    font-size: 16px;
+
+    margin-bottom: 20px;
+}
+
+button{
+
+    background: #2a5298;
+
+    color: white;
+
+    border: none;
+
+    padding: 12px 20px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    margin: 10px;
+}
+
+button:hover{
+    background: #1e3c72;
+}
+
+#resultado{
+
+    margin-top: 25px;
+
+    color: #333;
+
+    font-size: 28px;
+
+    min-height: 40px;
+}
+.barra{
+    width: 100%;
+    height: 20px;
+    background: #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+#barra-progreso{
+    width: 0%;
+    height: 100%;
+    background: #2ecc71;
+    transition: width 0.5s;
+}
+.progreso{
+    background: #f0f4ff;
+    border-radius: 15px;
+    padding: 10px;
+    margin-bottom: 20px;
+    color: #1e3c72;
+    font-weight: bold;
+}
+@media (max-width: 600px){
+
+    .contenedor{
+        width: 90%;
+        padding: 25px;
+    }
+
+    h1{
+        font-size: 24px;
+    }
+
+    input{
+        width: 95%;
+        font-size: 16px;
+    }
+
+    button{
+        width: 90%;
+        margin: 8px 0;
+    }
+
+    #resultado{
+        font-size: 24px;
+    }
+}

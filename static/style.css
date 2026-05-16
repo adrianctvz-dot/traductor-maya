@@ -218,3 +218,101 @@ hr{
 
     box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
+.intro{
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(
+        135deg,
+        #0f172a,
+        #1e3a8a,
+        #2563eb
+    );
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+
+    padding: 20px;
+}
+
+.intro-card{
+
+    background: rgba(255,255,255,0.95);
+
+    padding: 40px;
+
+    border-radius: 30px;
+
+    text-align: center;
+
+    max-width: 500px;
+
+    width: 100%;
+
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+
+    animation: aparecer 1s ease;
+}
+
+.intro-card h1{
+
+    font-size: 48px;
+
+    color: #1e3a8a;
+
+    margin-bottom: 20px;
+}
+
+.intro-card p{
+
+    color: #334155;
+
+    line-height: 1.7;
+
+    font-size: 18px;
+}
+
+.desarrolladores{
+
+    margin-top: 20px;
+
+    font-weight: bold;
+
+    color: #0f172a;
+}
+
+.intro-card button{
+
+    margin-top: 30px;
+
+    width: 100%;
+
+    padding: 16px;
+
+    font-size: 18px;
+
+    border-radius: 18px;
+}
+
+@keyframes aparecer{
+
+    from{
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}

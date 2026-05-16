@@ -255,3 +255,9 @@ function nuevaPalabra() {
 
     traducir();
 }
+function entrarApp(){
+
+    document.getElementById(
+        "intro"
+    ).style.display = "none";
+}

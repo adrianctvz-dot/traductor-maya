@@ -83,7 +83,9 @@ function calcularSimilitud(usuario, correcto) {
     correcto = limpiarTexto(correcto);
 
     let coincidencias = 0;
-    let longitud = Math.max(usuario.length, correcto.length);
+
+    let longitud =
+        Math.max(usuario.length, correcto.length);
 
     for(let i = 0; i < Math.min(usuario.length, correcto.length); i++){
 
@@ -92,7 +94,9 @@ function calcularSimilitud(usuario, correcto) {
         }
     }
 
-    return Math.round((coincidencias / longitud) * 100);
+    return Math.round(
+        (coincidencias / longitud) * 100
+    );
 }
 
 function generarTip(usuario, correcto, puntuacion) {
@@ -101,73 +105,53 @@ function generarTip(usuario, correcto, puntuacion) {
     correcto = limpiarTexto(correcto);
 
     if(puntuacion >= 90){
-        return "Excelente pronunciación. La palabra se escuchó muy parecida.";
+        return "Excelente pronunciación.";
     }
 
     if(usuario.length < correcto.length){
-        return "Te faltó completar la palabra. Intenta pronunciarla más despacio y no cortar el final.";
-    }
-
-    if(usuario.length > correcto.length + 2){
-        return "Agregaste sonidos extra. Intenta decir la palabra más corta y clara.";
+        return "Te faltó completar la palabra.";
     }
 
     if(usuario[0] !== correcto[0]){
-        return "El inicio no sonó igual. Practica la primera sílaba antes de decir toda la palabra.";
-    }
-
-    if(usuario[usuario.length - 1] !== correcto[correcto.length - 1]){
-        return "El final fue diferente. Intenta marcar mejor la última sílaba.";
-    }
-
-    const vocales = ["a", "e", "i", "o", "u"];
-
-    for(let vocal of vocales){
-
-        const cantidadUsuario =
-            usuario.split(vocal).length - 1;
-
-        const cantidadCorrecto =
-            correcto.split(vocal).length - 1;
-
-        if(cantidadUsuario < cantidadCorrecto){
-            return "Te faltó alargar o marcar mejor la vocal '" + vocal + "'.";
-        }
+        return "El inicio sonó diferente.";
     }
 
     if(puntuacion >= 70){
-        return "Vas bien. Solo intenta pronunciar más claro cada sílaba.";
+        return "Vas bien. Sigue practicando.";
     }
 
     if(puntuacion >= 50){
-        return "La palabra se parece, pero algunas letras cambiaron. Escucha la pronunciación y repítela más lento.";
+        return "Escucha la palabra otra vez.";
     }
 
-    return "Intenta acercarte más al micrófono, hablar sin ruido y repetir la palabra por sílabas.";
+    return "Habla más lento y claro.";
 }
 
 function escucharPronunciacion() {
 
     const palabraCorrecta =
-        document.getElementById("palabra-practica").innerText;
+        document.getElementById(
+            "palabra-practica"
+        ).innerText;
 
     const reconocimiento =
         new webkitSpeechRecognition();
 
     reconocimiento.lang = "es-MX";
-    reconocimiento.continuous = false;
-    reconocimiento.interimResults = false;
-    reconocimiento.maxAlternatives = 3;
 
     reconocimiento.start();
 
     reconocimiento.onerror = function() {
 
-        document.getElementById("calificacion").innerText =
+        document.getElementById(
+            "calificacion"
+        ).innerText =
             "No pude escuchar bien.";
 
-        document.getElementById("tip").innerText =
-            "Tip: habla más cerca del micrófono, sin ruido de fondo.";
+        document.getElementById(
+            "tip"
+        ).innerText =
+            "Habla más cerca del micrófono.";
     };
 
     reconocimiento.onresult = function(evento) {
@@ -176,92 +160,128 @@ function escucharPronunciacion() {
             evento.results[0][0].transcript;
 
         const puntuacion =
-            calcularSimilitud(textoUsuario, palabraCorrecta);
+            calcularSimilitud(
+                textoUsuario,
+                palabraCorrecta
+            );
 
         const tip =
-            generarTip(textoUsuario, palabraCorrecta, puntuacion);
+            generarTip(
+                textoUsuario,
+                palabraCorrecta,
+                puntuacion
+            );
 
-        document.getElementById("calificacion").innerText =
-            "Dijiste: " + textoUsuario +
-            " | Esperado: " + palabraCorrecta +
-            " | Precisión: " + puntuacion + "%";
+        document.getElementById(
+            "calificacion"
+        ).innerText =
 
-        document.getElementById("tip").innerText =
-            tip;
+            "Dijiste: " +
+            textoUsuario +
 
-        document.getElementById("barra-progreso").style.width =
+            " | Esperado: " +
+            palabraCorrecta +
+
+            " | Precisión: " +
             puntuacion + "%";
+
+        document.getElementById(
+            "tip"
+        ).innerText = tip;
+
+        document.getElementById(
+            "barra-progreso"
+        ).style.width =
+            puntuacion + "%";
+
+        const mensajeAvatar =
+            document.getElementById(
+                "mensaje-avatar"
+            );
+
+        const expresion =
+            document.getElementById(
+                "expresion-avatar"
+            );
+
+        if(puntuacion >= 90){
+
+            mensajeAvatar.innerText =
+                "Excelente pronunciación.";
+
+            hablarAvatar(
+                mensajeAvatar.innerText
+            );
+
+            expresion.innerText = "😄";
+        }
+
+        else if(puntuacion >= 70){
+
+            mensajeAvatar.innerText =
+                "Muy bien. Sigue practicando.";
+
+            hablarAvatar(
+                mensajeAvatar.innerText
+            );
+
+            expresion.innerText = "🙂";
+        }
+
+        else if(puntuacion >= 50){
+
+            mensajeAvatar.innerText =
+                "Vas mejorando.";
+
+            hablarAvatar(
+                mensajeAvatar.innerText
+            );
+
+            expresion.innerText = "😐";
+        }
+
+        else{
+
+            mensajeAvatar.innerText =
+                "Intentemos nuevamente.";
+
+            hablarAvatar(
+                mensajeAvatar.innerText
+            );
+
+            expresion.innerText = "😟";
+        }
 
         if(puntuacion >= 70){
             xp += 10;
-        } else if(puntuacion >= 50){
+        }
+
+        else if(puntuacion >= 50){
             xp += 5;
         }
 
-        nivel = Math.floor(xp / 50) + 1;
+        nivel =
+            Math.floor(xp / 50) + 1;
 
-        document.getElementById("xp").innerText =
+        document.getElementById(
+            "xp"
+        ).innerText =
             "XP: " + xp;
 
-        document.getElementById("nivel").innerText =
+        document.getElementById(
+            "nivel"
+        ).innerText =
             "Nivel: " + nivel;
     };
 }
 
-const palabrasPractica = [
-    "hola",
-    "gracias",
-    "comida",
-    "tortilla",
-    "escuela",
-    "amigo",
-    "familia",
-    "casa",
-    "perro",
-    "gato",
-    "caballo",
-    "pollo",
-    "trabajo",
-    "dinero",
-    "amor",
-    "feliz",
-    "grande",
-    "pequeño",
-    "bueno",
-    "malo",
-    "noche",
-    "estrella",
-    "libro",
-    "mano",
-    "cabeza"
-];
-
-function nuevaPalabra() {
-
-    const aleatoria =
-        palabrasPractica[
-            Math.floor(
-                Math.random() * palabrasPractica.length
-            )
-        ];
-
-    document.getElementById("palabra").value =
-        aleatoria;
-
-    traducir();
-}
-
-function entrarApp(){
-
-    document.getElementById("intro").style.display =
-        "none";
-}
 async function traduccionIA() {
 
     const palabra =
         document.getElementById("palabra").value;
 
-    const respuesta = await fetch("/traducir-ia", {
+    const respuesta =
+        await fetch("/traducir-ia", {
 
         method: "POST",
 
@@ -274,14 +294,61 @@ async function traduccionIA() {
         })
     });
 
-    const datos = await respuesta.json();
+    const datos =
+        await respuesta.json();
 
-    document.getElementById("resultado").innerText =
+    document.getElementById(
+        "resultado"
+    ).innerText =
         datos.resultado;
 
-    document.getElementById("pronunciacion").innerText =
-        "Traducción generada por IA. Verifica con una fuente confiable.";
+    document.getElementById(
+        "pronunciacion"
+    ).innerText =
+        "Traducción generada por IA.";
 
-    document.getElementById("palabra-practica").innerText =
+    document.getElementById(
+        "palabra-practica"
+    ).innerText =
         datos.resultado;
+}
+
+function nuevaPalabra() {
+
+    const palabras = [
+        "hola",
+        "gracias",
+        "comida",
+        "familia",
+        "escuela",
+        "amigo",
+        "casa",
+        "perro"
+    ];
+
+    const aleatoria =
+        palabras[
+            Math.floor(
+                Math.random() *
+                palabras.length
+            )
+        ];
+
+    document.getElementById(
+        "palabra"
+    ).value = aleatoria;
+
+    traducir();
+}
+
+function hablarAvatar(texto){
+
+    const voz =
+        new SpeechSynthesisUtterance(texto);
+
+    voz.lang = "es-MX";
+
+    voz.rate = 1;
+
+    speechSynthesis.speak(voz);
 }

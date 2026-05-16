@@ -3,13 +3,15 @@ import json
 import os
 
 from dotenv import load_dotenv
-from openai import OpenAI
+import google.generativeai as genai
 
 load_dotenv()
 
-client = OpenAI(
-    api_key=os.getenv("OPENAI_API_KEY")
+genai.configure(
+    api_key=os.getenv("GEMINI_API_KEY")
 )
+
+modelo = genai.GenerativeModel("gemini-flash-latest")
 
 app = Flask(__name__)
 
@@ -52,29 +54,22 @@ def traducir_ia():
 
     palabra = datos["palabra"]
 
-    respuesta = client.chat.completions.create(
-        model="gpt-4.1-mini",
+    prompt = f"""
+    Traduce la palabra o frase '{palabra}'
+    del español al maya yucateco.
 
-        messages=[
-            {
-                "role": "system",
-                "content":
-                "Eres un traductor experto de español a maya yucateco. "
-                "Responde SOLO con la traducción y una pronunciación simple."
-            },
+    Responde EXACTAMENTE así:
 
-            {
-                "role": "user",
-                "content":
-                f"Traduce la palabra '{palabra}' al maya yucateco y agrega pronunciación."
-            }
-        ]
-    )
+    Traducción: ...
+    Pronunciación: ...
 
-    texto = respuesta.choices[0].message.content
+    Usa pronunciación simple para hispanohablantes.
+    """
+
+    respuesta = modelo.generate_content(prompt)
 
     return jsonify({
-        "resultado": texto
+        "resultado": respuesta.text
     })
 
 

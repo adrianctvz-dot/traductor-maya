@@ -256,3 +256,32 @@ function entrarApp(){
     document.getElementById("intro").style.display =
         "none";
 }
+async function traduccionIA() {
+
+    const palabra =
+        document.getElementById("palabra").value;
+
+    const respuesta = await fetch("/traducir-ia", {
+
+        method: "POST",
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify({
+            palabra: palabra
+        })
+    });
+
+    const datos = await respuesta.json();
+
+    document.getElementById("resultado").innerText =
+        datos.resultado;
+
+    document.getElementById("pronunciacion").innerText =
+        "Traducción generada por IA. Verifica con una fuente confiable.";
+
+    document.getElementById("palabra-practica").innerText =
+        datos.resultado;
+}

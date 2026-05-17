@@ -1,5 +1,8 @@
-let xp = 0;
-let nivel = 1;
+let xp = Number(localStorage.getItem("xp")) || 0;
+let nivel = Number(localStorage.getItem("nivel")) || 1;
+let racha =
+    Number(localStorage.getItem("racha")) || 1;
+
 
 async function traducir() {
     const palabra = document.getElementById("palabra").value;
@@ -164,15 +167,55 @@ function escucharPronunciacion() {
         actualizarAvatar(puntuacion);
 
         if (puntuacion >= 70) {
-            xp += 10;
-        } else if (puntuacion >= 50) {
-            xp += 5;
-        }
+    xp += 10;
+    racha++;
+}
+else if (puntuacion >= 50) {
+    xp += 5;
+}
 
         nivel = Math.floor(xp / 50) + 1;
 
         document.getElementById("xp").innerText = "XP: " + xp;
         document.getElementById("nivel").innerText = "Nivel: " + nivel;
+        document.getElementById("xp").innerText =
+    "XP: " + xp;
+
+document.getElementById("nivel").innerText =
+    "Nivel: " + nivel;
+
+localStorage.setItem("xp", xp);
+localStorage.setItem("nivel", nivel);
+localStorage.setItem("racha", racha);
+
+document.getElementById(
+    "racha"
+).innerText =
+    "🔥 Racha: " + racha + " día";
+        if(xp >= 10){
+
+    document.getElementById(
+        "logro1"
+    ).innerText =
+        "✅ Primer traducción";
+}
+
+if(puntuacion >= 90){
+
+    document.getElementById(
+        "logro2"
+    ).innerText =
+        "✅ Pronunciación perfecta";
+}
+
+if(nivel >= 2){
+
+    document.getElementById(
+        "logro3"
+    ).innerText =
+        "✅ Nivel 2";
+
+}
     };
 }
 

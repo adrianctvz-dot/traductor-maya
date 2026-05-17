@@ -20,7 +20,7 @@ async function traducir() {
     const datos = await respuesta.json();
 
     document.getElementById("resultado").innerText = datos.resultado;
-    document.getElementById("pronunciacion").innerText =
+    document.getElementById("pronunciacion-texto").innerText =
         "Pronunciación: " + datos.pronunciacion;
 
     document.getElementById("palabra-practica").innerText =
@@ -256,7 +256,7 @@ async function traduccionIA() {
     const datos = await respuesta.json();
 
     document.getElementById("resultado").innerText = datos.resultado;
-    document.getElementById("pronunciacion").innerText =
+    document.getElementById("pronunciacion-texto").innerText =
         "Traducción generada por IA.";
 
     document.getElementById("palabra-practica").innerText = datos.resultado;

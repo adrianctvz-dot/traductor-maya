@@ -525,3 +525,16 @@ hr{
 #mensaje-chat{
     margin-top: 10px;
 }
+.seccion{
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 24px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.22);
+}
+
+.seccion h2,
+.seccion h3{
+    margin-top: 0;
+}

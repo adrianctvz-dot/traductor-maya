@@ -385,3 +385,21 @@ async function enviarMensaje(){
     chat.scrollTop =
         chat.scrollHeight;
 }
+function mostrarSeccion(id){
+
+    const secciones =
+        document.querySelectorAll(
+            ".seccion"
+        );
+
+    secciones.forEach(seccion => {
+
+        seccion.style.display =
+            "none";
+    });
+
+    document.getElementById(id)
+        .style.display = "block";
+}
+
+mostrarSeccion("traductor"); 

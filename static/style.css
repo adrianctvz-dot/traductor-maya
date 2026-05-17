@@ -538,3 +538,14 @@ hr{
 .seccion h3{
     margin-top: 0;
 }
+.menu-app{
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+.menu-app button{
+    min-width: 130px;
+}

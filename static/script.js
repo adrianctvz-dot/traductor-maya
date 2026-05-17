@@ -82,6 +82,55 @@ function calcularSimilitud(usuario, correcto) {
     usuario = limpiarTexto(usuario);
     correcto = limpiarTexto(correcto);
 
+    const variantes = [
+        correcto,
+        correcto.replaceAll("aa", "a"),
+        correcto.replaceAll("ii", "i"),
+        correcto.replaceAll("oo", "o"),
+        correcto.replaceAll("uu", "u"),
+        correcto.replaceAll("sh", "x"),
+        correcto.replaceAll("x", "sh"),
+        correcto.replaceAll("j", "h"),
+        correcto.replaceAll("h", "j"),
+        correcto.replaceAll("ts", "s"),
+        correcto.replaceAll("ch", "sh")
+    ];
+
+    let mejor = 0;
+
+    for(let variante of variantes){
+
+        let coincidencias = 0;
+
+        let longitud =
+            Math.max(usuario.length, variante.length);
+
+        for(
+            let i = 0;
+            i < Math.min(usuario.length, variante.length);
+            i++
+        ){
+
+            if(usuario[i] === variante[i]){
+                coincidencias++;
+            }
+        }
+
+        let puntuacion =
+            Math.round(
+                (coincidencias / longitud) * 100
+            );
+
+        if(puntuacion > mejor){
+            mejor = puntuacion;
+        }
+    }
+
+    return mejor;
+}
+    usuario = limpiarTexto(usuario);
+    correcto = limpiarTexto(correcto);
+
     let coincidencias = 0;
 
     let longitud =

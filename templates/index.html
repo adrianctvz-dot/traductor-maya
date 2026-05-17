@@ -3,216 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Traductor Maya</title>
-
+    <title>MayaLearn</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 
 <body>
+
     <section id="intro" class="intro">
-    <div class="intro-card">
-        <h1>MayaLearn</h1>
-        <p>
-            Aprende palabras en maya, escucha su pronunciación
-            y practica hablando con ayuda del micrófono.
-        </p>
+        <div class="intro-card">
+            <h1>MayaLearn</h1>
 
-        <p class="desarrolladores">
-            Desarrollado por Adrian Vázquez May y Alejandra Aguilar Uc
-        </p>
+            <p>
+                Aprende palabras en maya, escucha su pronunciación
+                y practica hablando con ayuda del micrófono.
+            </p>
 
-<button onclick="document.getElementById('intro').style.display='none'">
-    Comenzar
-</button>
-    </div>
-</section>
+            <p class="desarrolladores">
+                Desarrollado por Adrian Vázquez May y Alejandra Aguilar Uc
+            </p>
+
+            <button onclick="document.getElementById('intro').style.display='none'">
+                Comenzar
+            </button>
+        </div>
+    </section>
 
     <div class="contenedor">
-        <nav class="menu-app">
-    <button onclick="mostrarSeccion('traductor')">
-        Traductor
-    </button>
-
-    <button onclick="mostrarSeccion('pronunciacion')">
-        Pronunciación
-    </button>
-
-    <button onclick="mostrarSeccion('progreso')">
-        Progreso
-    </button>
-
-    <button onclick="mostrarSeccion('chat')">
-        Chat IA
-    </button>
-</nav>
 
         <div class="avatar-box">
+            <img
+                id="avatar"
+                src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png"
+            >
 
-    <img
-        id="avatar"
-        src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png"
-    >
+            <div class="avatar-info">
+                <h3 id="nombre-avatar">Kaambal</h3>
 
-    <div class="avatar-info">
+                <p id="mensaje-avatar">
+                    Bienvenido a MayaLearn
+                </p>
 
-        <h3 id="nombre-avatar">
-            Kaambal
-        </h3>
-
-        <p id="mensaje-avatar">
-            Bienvenido a MayaLearn
-        </p>
-
-<div id="expresion-avatar">🙂</div>
-
-    </div>
-
-</div>
+                <div id="expresion-avatar">🙂</div>
+            </div>
+        </div>
 
         <h1>Traductor Español - Maya</h1>
-<div class="seccion
-<h2>
-📈 Progreso
-</h2>
-        <div class="progreso">
-    <p id="nivel">Nivel: 1</p>
-    <p id="xp">XP: 0</p>
-    <div id="racha">
-    🔥 Racha: 1 día
-</div>
-</div>
-<div class="logros-box">
-    </div>
 
-    <h3>
-        🏆 Logros
-    </h3>
+        <nav class="menu-app">
+            <button onclick="mostrarSeccion('traductor')">
+                Traductor
+            </button>
 
-    <ul id="lista-logros">
+            <button onclick="mostrarSeccion('pronunciacion')">
+                Pronunciación
+            </button>
 
-        <li id="logro1">
-            🔒 Primer traducción
-        </li>
+            <button onclick="mostrarSeccion('progreso')">
+                Progreso
+            </button>
 
-        <li id="logro2">
-            🔒 Pronunciación perfecta
-        </li>
+            <button onclick="mostrarSeccion('chat')">
+                Chat IA
+            </button>
+        </nav>
 
-        <li id="logro3">
-            🔒 Nivel 2
-        </li>
+        <div class="seccion" id="traductor">
 
-    </ul>
+            <h2>Traductor</h2>
 
-</div>
-<div class="seccion" id="chat">
-<h2>
-🤖 Tutor IA
-</h2>
+            <div class="categorias">
+                <button onclick="cargarCategoria('basico')">
+                    Básico
+                </button>
 
-</div>
+                <button onclick="cargarCategoria('animales')">
+                    Animales
+                </button>
 
-<div class="chat-box">
+                <button onclick="cargarCategoria('familia')">
+                    Familia
+                </button>
 
-    <h3>
-        🌎 Conversación Maya IA
-    </h3>
+                <button onclick="cargarCategoria('escuela')">
+                    Escuela
+                </button>
+            </div>
 
-    <div id="chat-mensajes">
+            <input
+                type="text"
+                id="palabra"
+                placeholder="Escribe una palabra"
+            >
 
-        <div class="mensaje ia">
-            👋 Ma'alob. Practiquemos maya.
+            <button onclick="traducir()">
+                Traducir
+            </button>
+
+            <button onclick="traduccionIA()">
+                Traducción inteligente
+            </button>
+
+            <h2 id="resultado"></h2>
+            <h3 id="pronunciacion"></h3>
+
         </div>
 
-    </div>
+        <div class="seccion" id="pronunciacion">
 
-    <input
-        type="text"
-        id="mensaje-chat"
-        placeholder="Escribe un mensaje..."
-    >
+            <h2>Pronunciación</h2>
 
-    <button onclick="enviarMensaje()">
-        Enviar
-    </button>
+            <button onclick="hablar()">
+                Escuchar
+            </button>
 
-</div>
-<div class="seccion" id="progreso">
-    <h2>Traductor</h2>
-<div class="categorias">
-    <button onclick="cargarCategoria('basico')">
-        Básico
-    </button>
+            <h3 id="palabra-practica"></h3>
 
-    <button onclick="cargarCategoria('animales')">
-        Animales
-    </button>
+            <button onclick="nuevaPalabra()">
+                Nueva palabra
+            </button>
 
-    <button onclick="cargarCategoria('familia')">
-        Familia
-    </button>
+            <button onclick="escucharPronunciacion()">
+                Pronunciar
+            </button>
 
-    <button onclick="cargarCategoria('escuela')">
-        Escuela
-    </button>
-</div>
+            <h2 id="calificacion"></h2>
 
-        <input
-            type="text"
-            id="palabra"
-            placeholder="Escribe una palabra"
-        >
+            <div class="barra">
+                <div id="barra-progreso"></div>
+            </div>
 
-        <button onclick="traducir()">
-            Traducir
-        </button>
-        <button onclick="traduccionIA()">
-    Traducción inteligente
-</button>
+            <h3 id="tip"></h3>
 
-
-<button onclick="escuchar()">
-    🎤 Hablar
-</button>
-
-        <h2 id="resultado"></h2>
-
-        <h3 id="pronunciacion"></h3>
         </div>
-<div class="seccion" id="pronunciacion">
 
-<h2>
-🎤 Pronunciación
-</h2>
-        <button onclick="hablar()">
-            🔊 Escuchar
-        </button>
+        <div class="seccion" id="progreso">
 
-        <hr>
+            <h2>Progreso</h2>
 
-<h2>Practicar pronunciación</h2>
+            <div class="progreso">
+                <p id="nivel">Nivel: 1</p>
+                <p id="xp">XP: 0</p>
+            </div>
 
-<h3 id="palabra-practica"></h3>
-<button onclick="nuevaPalabra()">
-    🎲 Nueva palabra
-</button>
+            <div id="racha">
+                🔥 Racha: 1 día
+            </div>
 
-<button onclick="escucharPronunciacion()">
-    🎤 Pronunciar
-</button>
+            <div class="logros-box">
 
-<h2 id="calificacion"></h2>
+                <h3>Logros</h3>
 
-<div class="barra">
-    <div id="barra-progreso"></div></div>
-</div>
+                <ul id="lista-logros">
+                    <li id="logro1">🔒 Primer traducción</li>
+                    <li id="logro2">🔒 Pronunciación perfecta</li>
+                    <li id="logro3">🔒 Nivel 2</li>
+                </ul>
 
-<h3 id="tip"></h3>
+            </div>
+
+        </div>
+
+        <div class="seccion" id="chat">
+
+            <h2>Tutor IA</h2>
+
+            <div class="chat-box">
+
+                <h3>Conversación Maya IA</h3>
+
+                <div id="chat-mensajes">
+                    <div class="mensaje ia">
+                        Ma'alob. Practiquemos maya.
+                    </div>
+                </div>
+
+                <input
+                    type="text"
+                    id="mensaje-chat"
+                    placeholder="Escribe un mensaje..."
+                >
+
+                <button onclick="enviarMensaje()">
+                    Enviar
+                </button>
+
+            </div>
+
+        </div>
 
     </div>
 
     <script src="/static/script.js"></script>
 
 </body>
-</html>
+</html> 

@@ -454,3 +454,44 @@ function cargarCategoria(nombre){
 
     traducir();
 }
+const categorias = {
+    basico: [
+        "hola",
+        "gracias",
+        "comida",
+        "tortilla"
+    ],
+
+    animales: [
+        "perro",
+        "gato",
+        "caballo",
+        "pollo"
+    ],
+
+    familia: [
+        "familia",
+        "mujer",
+        "hombre",
+        "niño"
+    ],
+
+    escuela: [
+        "escuela",
+        "libro",
+        "trabajo",
+        "amigo"
+    ]
+};
+
+function cargarCategoria(nombre){
+
+    const lista = categorias[nombre];
+
+    const aleatoria =
+        lista[Math.floor(Math.random() * lista.length)];
+
+    document.getElementById("palabra").value = aleatoria;
+
+    traducir();
+} 

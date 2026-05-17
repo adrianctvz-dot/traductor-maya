@@ -254,3 +254,21 @@ hr{
     font-size: 45px;
     margin-top: 8px;
 }
+.categorias{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.categorias button{
+    background: rgba(255,255,255,0.14);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #e0f2fe;
+    font-size: 14px;
+    padding: 12px;
+}
+
+.categorias button:hover{
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+}

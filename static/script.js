@@ -352,3 +352,56 @@ function hablarAvatar(texto){
 
     speechSynthesis.speak(voz);
 }
+const categorias = {
+
+    basico: [
+        "hola",
+        "gracias",
+        "adios",
+        "comida",
+        "agua"
+    ],
+
+    animales: [
+        "perro",
+        "gato",
+        "caballo",
+        "pollo",
+        "pajaro"
+    ],
+
+    familia: [
+        "mama",
+        "papa",
+        "hermano",
+        "abuelo",
+        "familia"
+    ],
+
+    escuela: [
+        "escuela",
+        "libro",
+        "lapiz",
+        "maestro",
+        "tarea"
+    ]
+};
+
+function cargarCategoria(nombre){
+
+    const lista =
+        categorias[nombre];
+
+    const aleatoria =
+        lista[
+            Math.floor(
+                Math.random() * lista.length
+            )
+        ];
+
+    document.getElementById(
+        "palabra"
+    ).value = aleatoria;
+
+    traducir();
+}

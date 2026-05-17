@@ -71,7 +71,27 @@ def traducir_ia():
     return jsonify({
         "resultado": respuesta.text
     })
+@app.route("/chat-ia", methods=["POST"])
+def chat_ia():
 
+    datos = request.get_json()
 
+    mensaje = datos["mensaje"]
+
+    prompt = f"""
+    Responde como un tutor amigable de maya yucateco.
+
+    Enseña palabras simples, corrige suavemente
+    y responde corto.
+
+    Usuario:
+    {mensaje}
+    """
+
+    respuesta = modelo.generate_content(prompt)
+
+    return jsonify({
+        "respuesta": respuesta.text
+    })
 if __name__ == "__main__":
     app.run(debug=True)

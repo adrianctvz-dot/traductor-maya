@@ -25,12 +25,10 @@ async function enviarMensaje(){
             "chat-mensajes"
         );
 
-    chat.innerHTML += `
-        <div class="mensaje usuario">
-            ${texto}
-        </div>
-    `;
-
+   chat.innerHTML += crearMensaje(
+    "usuario",
+    texto
+);
     input.value = "";
 
     const respuesta =
@@ -51,11 +49,10 @@ async function enviarMensaje(){
     const datos =
         await respuesta.json();
 
-    chat.innerHTML += `
-        <div class="mensaje ia">
-            ${datos.respuesta}
-        </div>
-    `;
+   chat.innerHTML += crearMensaje(
+    "ia",
+    datos.respuesta
+);
 
     const vozIA =
     new SpeechSynthesisUtterance(datos.respuesta);

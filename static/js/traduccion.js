@@ -10,6 +10,8 @@ async function traducir() {
             palabra: palabra
         })
     });
+    }
+
     async function traduccionIA() {
     const palabra = document.getElementById("palabra").value;
 
@@ -33,7 +35,7 @@ async function traducir() {
         "casa",
         "perro"
     ];
-
+}
     const aleatoria =
         palabras[Math.floor(Math.random() * palabras.length)];
 

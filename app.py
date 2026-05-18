@@ -1,3 +1,4 @@
+```python
 from flask import Flask, render_template, request, jsonify
 import json
 import os
@@ -71,6 +72,8 @@ def traducir_ia():
     return jsonify({
         "resultado": respuesta.text
     })
+
+
 @app.route("/chat-ia", methods=["POST"])
 def chat_ia():
 
@@ -78,34 +81,37 @@ def chat_ia():
 
     mensaje = datos["mensaje"]
 
-prompt = f"""
-Eres un tutor experto y amigable
-de maya yucateco llamado Kaambal.
+    prompt = f"""
+    Eres un tutor experto y amigable
+    de maya yucateco llamado Kaambal.
 
-Tu trabajo es:
+    Tu trabajo es:
 
-- enseñar palabras mayas
-- corregir suavemente
-- motivar al estudiante
-- hacer preguntas cortas
-- enseñar pronunciación
-- usar ejemplos simples
+    - enseñar palabras mayas
+    - corregir suavemente
+    - motivar al estudiante
+    - hacer preguntas cortas
+    - enseñar pronunciación
+    - usar ejemplos simples
 
-Reglas:
-- responde corto
-- usa emojis ocasionalmente
-- enseña maya y español
-- mantén conversación educativa
-- motiva siempre al usuario
+    Reglas:
+    - responde corto
+    - usa emojis ocasionalmente
+    - enseña maya y español
+    - mantén conversación educativa
+    - motiva siempre al usuario
 
-Usuario:
-{mensaje}
-"""
+    Usuario:
+    {mensaje}
+    """
 
     respuesta = modelo.generate_content(prompt)
 
     return jsonify({
         "respuesta": respuesta.text
     })
+
+
 if __name__ == "__main__":
     app.run(debug=True)
+```

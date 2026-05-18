@@ -382,6 +382,14 @@ async function enviarMensaje(){
         </div>
     `;
 
+    const vozIA =
+    new SpeechSynthesisUtterance(datos.respuesta);
+
+vozIA.lang = "es-MX";
+vozIA.rate = 1;
+
+speechSynthesis.speak(vozIA);
+
     chat.scrollTop =
         chat.scrollHeight;
 }

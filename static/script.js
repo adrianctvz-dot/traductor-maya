@@ -403,3 +403,14 @@ function mostrarSeccion(id){
 }
 
 mostrarSeccion("traductor"); 
+function mostrarPantalla(id){
+
+    const pantallas =
+        document.querySelectorAll(".pantalla");
+
+    pantallas.forEach(pantalla => {
+        pantalla.classList.remove("activa");
+    });
+
+    document.getElementById(id).classList.add("activa");
+}

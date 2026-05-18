@@ -1,3 +1,7 @@
+let xp = Number(localStorage.getItem("xp")) || 0;
+let nivel = Number(localStorage.getItem("nivel")) || 1;
+let racha = Number(localStorage.getItem("racha")) || 1;
+
 const misiones = [
     "Aprende 3 palabras de animales",
     "Pronuncia una palabra correctamente",
@@ -11,6 +15,10 @@ function cargarMisiones(){
 
     const contenedor =
         document.getElementById("misiones-lista");
+
+    if(!contenedor){
+        return;
+    }
 
     contenedor.innerHTML = "";
 
@@ -28,7 +36,6 @@ function cargarMisiones(){
     }
 }
 
-cargarMisiones();
 function completarMision(texto){
 
     const misiones =
@@ -36,26 +43,30 @@ function completarMision(texto){
 
     misiones.forEach(mision => {
 
-        if(
-            mision.innerText.includes(texto)
-        ){
+        if(mision.innerText.includes(texto)){
 
             mision.innerHTML =
-                mision.innerHTML.replace(
-                    "⬜",
-                    "✅"
-                );
+                mision.innerHTML.replace("⬜", "✅");
 
             xp += 20;
 
-            document.getElementById("xp")
-                .innerText =
+            document.getElementById("xp").innerText =
                 "XP: " + xp;
 
-            localStorage.setItem(
-                "xp",
-                xp
-            );
+            localStorage.setItem("xp", xp);
         }
     });
 }
+
+window.addEventListener("DOMContentLoaded", function(){
+    cargarMisiones();
+
+    document.getElementById("xp").innerText =
+        "XP: " + xp;
+
+    document.getElementById("nivel").innerText =
+        "Nivel: " + nivel;
+
+    document.getElementById("racha").innerText =
+        "🔥 Racha: " + racha + " día";
+});

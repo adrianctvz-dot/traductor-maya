@@ -1,4 +1,3 @@
-```python
 from flask import Flask, render_template, request, jsonify
 import json
 import os
@@ -114,4 +113,3 @@ def chat_ia():
 
 if __name__ == "__main__":
     app.run(debug=True)
-```

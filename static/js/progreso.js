@@ -29,3 +29,33 @@ function cargarMisiones(){
 }
 
 cargarMisiones();
+function completarMision(texto){
+
+    const misiones =
+        document.querySelectorAll(".mision");
+
+    misiones.forEach(mision => {
+
+        if(
+            mision.innerText.includes(texto)
+        ){
+
+            mision.innerHTML =
+                mision.innerHTML.replace(
+                    "⬜",
+                    "✅"
+                );
+
+            xp += 20;
+
+            document.getElementById("xp")
+                .innerText =
+                "XP: " + xp;
+
+            localStorage.setItem(
+                "xp",
+                xp
+            );
+        }
+    });
+}

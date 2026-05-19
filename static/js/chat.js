@@ -42,7 +42,11 @@ async function enviarMensaje(){
         },
 
         body: JSON.stringify({
-            mensaje: texto
+          mensaje: texto,
+escenario:
+    localStorage.getItem(
+        "escenarioActual"
+    )
         })
     });
 

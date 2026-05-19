@@ -29,3 +29,59 @@ function mostrarPantalla(id){
 
     document.getElementById(id).classList.add("activa");
 }
+const escenarios = [
+
+    {
+        titulo: "Mercado Maya",
+        descripcion:
+            "Aprende cómo pedir comida y hablar en un mercado tradicional maya."
+    },
+
+    {
+        titulo: "Casa Tradicional",
+        descripcion:
+            "Aprende conversaciones familiares y palabras del hogar."
+    },
+
+    {
+        titulo: "Escuela Comunitaria",
+        descripcion:
+            "Practica frases educativas y vocabulario escolar maya."
+    },
+
+    {
+        titulo: "Fiesta Tradicional",
+        descripcion:
+            "Aprende expresiones culturales y celebraciones mayas."
+    }
+
+];
+
+function cambiarEscenario(){
+
+    const aleatorio =
+        escenarios[
+            Math.floor(
+                Math.random() * escenarios.length
+            )
+        ];
+
+    document.getElementById(
+        "escenario-titulo"
+    ).innerText =
+        aleatorio.titulo;
+
+    document.getElementById(
+        "escenario-descripcion"
+    ).innerText =
+        aleatorio.descripcion;
+        localStorage.setItem(
+    "escenarioActual",
+    aleatorio.titulo
+);
+}
+
+window.addEventListener(
+    "DOMContentLoaded",
+    cambiarEscenario
+);

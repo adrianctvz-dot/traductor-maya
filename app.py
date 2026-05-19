@@ -79,6 +79,10 @@ def chat_ia():
     datos = request.get_json()
 
     mensaje = datos["mensaje"]
+    escenario = datos.get(
+    "escenario",
+    "Cultura Maya"
+)
 
     prompt = f"""
     Eres un tutor experto y amigable
@@ -103,7 +107,7 @@ def chat_ia():
     - motiva siempre al usuario
 
     Escenario actual:
-Mercado maya tradicional.
+{escenario}
     Usuario:
     {mensaje}
     """

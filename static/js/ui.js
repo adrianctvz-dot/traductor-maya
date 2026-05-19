@@ -33,26 +33,42 @@ const escenarios = [
 
     {
         titulo: "Mercado Maya",
+
         descripcion:
-            "Aprende cómo pedir comida y hablar en un mercado tradicional maya."
+            "Aprende cómo pedir comida y hablar en un mercado tradicional maya.",
+
+        personaje:
+            "👨‍🌾 Vendedor Maya"
     },
 
     {
         titulo: "Casa Tradicional",
+
         descripcion:
-            "Aprende conversaciones familiares y palabras del hogar."
+            "Aprende conversaciones familiares y palabras del hogar.",
+
+        personaje:
+            "👵 Abuela Maya"
     },
 
     {
         titulo: "Escuela Comunitaria",
+
         descripcion:
-            "Practica frases educativas y vocabulario escolar maya."
+            "Practica frases educativas y vocabulario escolar maya.",
+
+        personaje:
+            "👨‍🏫 Maestro Comunitario"
     },
 
     {
         titulo: "Fiesta Tradicional",
+
         descripcion:
-            "Aprende expresiones culturales y celebraciones mayas."
+            "Aprende expresiones culturales y celebraciones mayas.",
+
+        personaje:
+            "🎉 Joven Maya"
     }
 
 ];
@@ -75,6 +91,10 @@ function cambiarEscenario(){
         "escenario-descripcion"
     ).innerText =
         aleatorio.descripcion;
+        document.getElementById(
+    "personaje-escenario"
+).innerText =
+    aleatorio.personaje;
         localStorage.setItem(
     "escenarioActual",
     aleatorio.titulo

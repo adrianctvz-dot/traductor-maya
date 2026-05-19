@@ -187,3 +187,12 @@ button:hover{
     border: 1px solid rgba(255,255,255,0.08);
     backdrop-filter: blur(10px);
 }
+#escenario-titulo{
+    margin-top: 10px;
+    color: #facc15;
+}
+
+#escenario-descripcion{
+    opacity: 0.9;
+    line-height: 1.5;
+}

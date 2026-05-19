@@ -77,7 +77,10 @@ const escenarios = [
             "👨‍🌾 Vendedor Maya",
 
         personalidad:
-            "Habla como un vendedor amable de mercado maya."
+            "Habla como un vendedor amable de mercado maya.",
+
+        imagen:
+            "https://i.imgur.com/8Km9tLL.png"
     },
 
     {
@@ -91,7 +94,10 @@ const escenarios = [
             "👵 Abuela Maya",
 
         personalidad:
-            "Habla como una abuela maya sabia y amable."
+            "Habla como una abuela maya sabia y amable.",
+
+        imagen:
+            "https://i.imgur.com/qIufhof.png"
     },
 
     {
@@ -105,7 +111,10 @@ const escenarios = [
             "👨‍🏫 Maestro Comunitario",
 
         personalidad:
-            "Habla como un maestro comunitario paciente."
+            "Habla como un maestro comunitario paciente.",
+
+        imagen:
+            "https://i.imgur.com/6RLmN8i.png"
     },
 
     {
@@ -119,68 +128,16 @@ const escenarios = [
             "🎉 Joven Maya",
 
         personalidad:
-            "Habla como un joven alegre en una fiesta tradicional maya."
+            "Habla como un joven alegre en una fiesta tradicional maya.",
+
+        imagen:
+            "https://i.imgur.com/rWZ5wQm.png"
     }
 
 ];
 
 
-function cambiarEscenario(){
-
-    const aleatorio =
-        escenarios[
-            Math.floor(
-                Math.random() *
-                escenarios.length
-            )
-        ];
-
-    document.getElementById(
-        "escenario-titulo"
-    ).innerText =
-        aleatorio.titulo;
-
-    document.getElementById(
-        "escenario-descripcion"
-    ).innerText =
-        aleatorio.descripcion;
-
-    document.getElementById(
-        "personaje-escenario"
-    ).innerText =
-        aleatorio.personaje;
-
-    localStorage.setItem(
-        "escenarioActual",
-        aleatorio.titulo
-    );
-
-    localStorage.setItem(
-        "personalidadEscenario",
-        aleatorio.personalidad
-    );
-}
-
-
-window.addEventListener(
-    "DOMContentLoaded",
-    cambiarEscenario
-); 
-function seleccionarEscenario(){
-
-    const seleccionado =
-        document.getElementById(
-            "selector-escenario"
-        ).value;
-
-    const escenario =
-        escenarios.find(
-            e => e.titulo === seleccionado
-        );
-
-    if(!escenario){
-        return;
-    }
+function aplicarEscenario(escenario){
 
     document.getElementById(
         "escenario-titulo"
@@ -197,6 +154,11 @@ function seleccionarEscenario(){
     ).innerText =
         escenario.personaje;
 
+    document.getElementById(
+        "imagen-personaje"
+    ).src =
+        escenario.imagen;
+
     localStorage.setItem(
         "escenarioActual",
         escenario.titulo
@@ -207,3 +169,47 @@ function seleccionarEscenario(){
         escenario.personalidad
     );
 }
+
+
+function cambiarEscenario(){
+
+    const aleatorio =
+        escenarios[
+            Math.floor(
+                Math.random() *
+                escenarios.length
+            )
+        ];
+
+    aplicarEscenario(
+        aleatorio
+    );
+}
+
+
+function seleccionarEscenario(){
+
+    const seleccionado =
+        document.getElementById(
+            "selector-escenario"
+        ).value;
+
+    const escenario =
+        escenarios.find(
+            e => e.titulo === seleccionado
+        );
+
+    if(!escenario){
+        return;
+    }
+
+    aplicarEscenario(
+        escenario
+    );
+}
+
+
+window.addEventListener(
+    "DOMContentLoaded",
+    cambiarEscenario
+);

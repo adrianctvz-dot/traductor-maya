@@ -166,3 +166,44 @@ window.addEventListener(
     "DOMContentLoaded",
     cambiarEscenario
 ); 
+function seleccionarEscenario(){
+
+    const seleccionado =
+        document.getElementById(
+            "selector-escenario"
+        ).value;
+
+    const escenario =
+        escenarios.find(
+            e => e.titulo === seleccionado
+        );
+
+    if(!escenario){
+        return;
+    }
+
+    document.getElementById(
+        "escenario-titulo"
+    ).innerText =
+        escenario.titulo;
+
+    document.getElementById(
+        "escenario-descripcion"
+    ).innerText =
+        escenario.descripcion;
+
+    document.getElementById(
+        "personaje-escenario"
+    ).innerText =
+        escenario.personaje;
+
+    localStorage.setItem(
+        "escenarioActual",
+        escenario.titulo
+    );
+
+    localStorage.setItem(
+        "personalidadEscenario",
+        escenario.personalidad
+    );
+}

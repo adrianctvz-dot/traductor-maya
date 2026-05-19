@@ -83,6 +83,10 @@ def chat_ia():
     "escenario",
     "Cultura Maya"
 )
+    personalidad = datos.get(
+    "personalidad",
+    "Habla amigablemente."
+)
 
     prompt = f"""
     Eres un tutor experto y amigable
@@ -108,6 +112,8 @@ def chat_ia():
 
     Escenario actual:
 {escenario}
+Personalidad:
+{personalidad}
     Usuario:
     {mensaje}
     """

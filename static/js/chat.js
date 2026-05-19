@@ -41,13 +41,20 @@ async function enviarMensaje(){
                 "application/json"
         },
 
-        body: JSON.stringify({
-          mensaje: texto,
-escenario:
-    localStorage.getItem(
-        "escenarioActual"
-    )
-        })
+       body: JSON.stringify({
+
+    mensaje: texto,
+
+    escenario:
+        localStorage.getItem(
+            "escenarioActual"
+        ),
+
+    personalidad:
+        localStorage.getItem(
+            "personalidadEscenario"
+        )
+})
     });
 
     const datos =

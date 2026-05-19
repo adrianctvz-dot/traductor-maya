@@ -102,7 +102,9 @@ def chat_ia():
     - hacer preguntas cortas
     - enseñar pronunciación
     - usar ejemplos simples
+Actúa SIEMPRE según esta personalidad:
 
+{personalidad}
     Reglas:
     - responde corto
     - usa emojis ocasionalmente

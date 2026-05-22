@@ -617,3 +617,147 @@ button:hover{
         translateY(-4px)
         scale(1.01);
 }
+button{
+
+    background:
+        linear-gradient(
+            135deg,
+            #14b8a6,
+            #0f766e
+        );
+
+    color: white;
+
+    border: none;
+
+    padding:
+        12px 18px;
+
+    border-radius: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+button:hover{
+
+    background:
+        linear-gradient(
+            135deg,
+            #facc15,
+            #eab308
+        );
+
+    color: #111827;
+}
+
+.card{
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(51,65,85,0.95),
+            rgba(30,41,59,0.92)
+        );
+}
+
+input{
+
+    background:
+        rgba(255,255,255,0.08);
+
+    color: white;
+
+    border:
+        1px solid rgba(255,255,255,0.08);
+
+    border-radius: 16px;
+
+    padding: 14px;
+}
+
+input::placeholder{
+    color: rgba(255,255,255,0.55);
+}
+.mercado-bg{
+    background:
+        linear-gradient(
+            135deg,
+            #78350f,
+            #1e293b
+        );
+}
+
+.casa-bg{
+    background:
+        linear-gradient(
+            135deg,
+            #334155,
+            #0f172a
+        );
+}
+
+.escuela-bg{
+    background:
+        linear-gradient(
+            135deg,
+            #0f766e,
+            #1e293b
+        );
+}
+
+.fiesta-bg{
+    background:
+        linear-gradient(
+            135deg,
+            #7c2d12,
+            #7e22ce
+        );
+}
+.bottom-menu{
+
+    position: fixed;
+
+    bottom: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: space-around;
+
+    padding: 14px;
+
+    background:
+        rgba(15,23,42,0.92);
+
+    backdrop-filter: blur(16px);
+
+    border-top:
+        1px solid rgba(255,255,255,0.08);
+
+    z-index: 1000;
+}
+
+.bottom-menu button{
+
+    flex: 1;
+
+    margin: 0 6px;
+
+    border-radius: 18px;
+
+    font-size: 14px;
+
+    padding: 12px;
+}
+
+main.app{
+
+    padding-bottom: 110px;
+}

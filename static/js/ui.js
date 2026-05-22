@@ -138,6 +138,43 @@ const escenarios = [
 
 
 function aplicarEscenario(escenario){
+    document.body.className = "";
+
+if(
+    escenario.titulo ===
+    "Mercado Maya"
+){
+    document.body.classList.add(
+        "mercado-bg"
+    );
+}
+
+if(
+    escenario.titulo ===
+    "Casa Tradicional"
+){
+    document.body.classList.add(
+        "casa-bg"
+    );
+}
+
+if(
+    escenario.titulo ===
+    "Escuela Comunitaria"
+){
+    document.body.classList.add(
+        "escuela-bg"
+    );
+}
+
+if(
+    escenario.titulo ===
+    "Fiesta Tradicional"
+){
+    document.body.classList.add(
+        "fiesta-bg"
+    );
+}
 
     document.getElementById(
         "escenario-titulo"

@@ -390,28 +390,6 @@ button:hover{
 .mensaje.usuario{
     background: linear-gradient(135deg,#14b8a6,#0d9488);
 }
-.imagen-seccion{
-    width: 100%;
-    height: 180px;
-    margin: 15px 0;
-    border-radius: 22px;
-    overflow: hidden;
-    border: 2px solid rgba(250,204,21,0.45);
-    box-shadow: 0 12px 28px rgba(0,0,0,0.35);
-    animation: aparecerImagen 0.7s ease;
-}
-
-.imagen-seccion img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.imagen-seccion:hover img{
-    transform: scale(1.08);
-}
-
 .card{
     animation: subirCard 0.6s ease;
 }
@@ -447,4 +425,195 @@ button:hover{
         opacity: 1;
         transform: scale(1);
     }
+}
+body{
+    background:
+        linear-gradient(
+            rgba(15,23,42,0.92),
+            rgba(30,41,59,0.96)
+        ),
+
+        url("https://www.transparenttextures.com/patterns/az-subtle.png");
+
+    background-size: cover;
+}
+
+.card{
+    backdrop-filter: blur(14px);
+    transition: 0.3s;
+}
+
+.card:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.35);
+}
+
+#escenario-titulo{
+    text-shadow: 0 0 10px rgba(250,204,21,0.35);
+}
+
+button{
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.bottom-menu{
+    backdrop-filter: blur(12px);
+}
+
+.mision{
+    background:
+        linear-gradient(
+            135deg,
+            rgba(250,204,21,0.08),
+            rgba(20,184,166,0.08)
+        );
+}
+
+.card::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(250,204,21,0.08),
+            transparent 35%
+        );
+    pointer-events: none;
+}
+.card::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 7px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #facc15,
+            #14b8a6,
+            #dc2626
+        );
+}
+
+.card{
+    border:
+        1px solid rgba(250,204,21,0.12);
+}
+
+h2::after{
+    content: " ✦";
+    color: #facc15;
+}
+
+#personaje-escenario{
+    position: relative;
+    overflow: hidden;
+}
+
+#personaje-escenario::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(250,204,21,0.08),
+            transparent
+        );
+
+    animation: brillo 3s linear infinite;
+}
+
+@keyframes brillo{
+
+    from{
+        transform: translateX(-100%);
+    }
+
+    to{
+        transform: translateX(100%);
+    }
+}
+
+.bottom-menu button{
+
+    box-shadow:
+        0 0 12px rgba(20,184,166,0.15);
+}
+
+.bottom-menu button:hover{
+
+    box-shadow:
+        0 0 20px rgba(250,204,21,0.35);
+}
+.pantalla{
+    display: none;
+    animation: fadePantalla 0.4s ease;
+}
+
+.pantalla.activa{
+    display: block;
+}
+
+@keyframes fadePantalla{
+
+    from{
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}.card{
+    animation:
+        respirar 5s ease-in-out infinite;
+}
+
+@keyframes respirar{
+
+    0%{
+        box-shadow:
+            0 0 0 rgba(250,204,21,0);
+    }
+
+    50%{
+        box-shadow:
+            0 0 22px rgba(250,204,21,0.12);
+    }
+
+    100%{
+        box-shadow:
+            0 0 0 rgba(250,204,21,0);
+    }
+}
+
+button{
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+button:hover{
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 20px rgba(250,204,21,0.25);
+}
+
+.card:hover{
+
+    transform:
+        translateY(-4px)
+        scale(1.01);
 }

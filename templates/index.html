@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MayaLearn</title>
     <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
 </head>
 
 <body>
@@ -243,11 +251,30 @@
         </section>
 
         <nav class="bottom-menu">
-            <button onclick="mostrarPantalla('inicio')">Inicio</button>
-            <button onclick="mostrarPantalla('traductor')">Traductor</button>
-            <button onclick="mostrarPantalla('practica')">Práctica</button>
-            <button onclick="mostrarPantalla('progreso')">Progreso</button>
-            <button onclick="mostrarPantalla('chat')">Chat</button>
+            <button onclick="mostrarPantalla('inicio')">
+    <i class="fa-solid fa-house"></i>
+    <span>Inicio</span>
+</button>
+
+<button onclick="mostrarPantalla('traductor')">
+    <i class="fa-solid fa-language"></i>
+    <span>Traductor</span>
+</button>
+
+<button onclick="mostrarPantalla('practica')">
+    <i class="fa-solid fa-microphone"></i>
+    <span>Práctica</span>
+</button>
+
+<button onclick="mostrarPantalla('progreso')">
+    <i class="fa-solid fa-chart-line"></i>
+    <span>Progreso</span>
+</button>
+
+<button onclick="mostrarPantalla('chat')">
+    <i class="fa-solid fa-robot"></i>
+    <span>IA</span>
+</button>
         </nav>
 
     </main>

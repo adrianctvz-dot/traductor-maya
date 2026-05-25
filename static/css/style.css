@@ -825,3 +825,17 @@ main.app{
     background: #0f172a;
     color: white;
 }
+.bottom-menu button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.bottom-menu i{
+    font-size: 18px;
+}
+
+.bottom-menu span{
+    font-size: 11px;
+}

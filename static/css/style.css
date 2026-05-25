@@ -761,3 +761,41 @@ main.app{
 
     padding-bottom: 110px;
 }
+@media(max-width: 600px){
+
+    .bottom-menu{
+
+        padding: 8px;
+
+        gap: 4px;
+    }
+
+    .bottom-menu button{
+
+        font-size: 11px;
+
+        padding: 10px 4px;
+
+        margin: 0;
+
+        border-radius: 12px;
+    }
+
+    main.app{
+
+        padding-bottom: 95px;
+    }
+
+    .card{
+
+        padding: 18px;
+    }
+
+    h1{
+        font-size: 24px;
+    }
+
+    h2{
+        font-size: 20px;
+    }
+}
